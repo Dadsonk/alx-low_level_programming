@@ -2,6 +2,8 @@
 #include <string.h>
 #include "lists.h"
 
+int _strlen(const char *s);
+
 /**
   * add_node - Adds a new node at the beginning of a list
   * @head: The original linked list
