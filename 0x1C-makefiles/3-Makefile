@@ -1,0 +1,24 @@
+# variables (Compiler, Source files, Object files, Executable name, Command to remove files)
+CC = gcc
+SRC = main.c school.c 
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+
+# Build the executable
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Clean temporary files and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Clean object files
+oclean:
+	$(RM) $(OBJ)
+
+# Clean all temporary files, the executable, and object files
+fclean: clean oclean
+
+# Force recompilation of all source files
+re: fclean all
