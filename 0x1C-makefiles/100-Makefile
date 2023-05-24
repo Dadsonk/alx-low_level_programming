@@ -1,0 +1,28 @@
+# variables (Compiler, Source files, Object files, Executable name, Command to remove files, compiler flags)
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Phony targets for project rules
+.PHONY: all clean oclean fclean re
+
+# Build the executable
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Clean temporary files and the executable
+clean:
+	$(RM) *~ $(NAME)
+
+# Clean object files
+oclean:
+	$(RM) $(OBJ)
+
+# Clean all temporary files, the executable, and object files
+fclean: clean oclean
+
+# Force recompilation of all source files
+re: fclean all
